@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: notification-service
+
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/notifications_db
+    username: postgres
+    password: HOLA123
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+
+  mail:
+    host: localhost
+    port: 1025
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+
+
+app:
+  security:
+    api-key: "sagant-secret-key-123"
+  dispatch:
+    max-retries: 2
+    retry-delay-ms: 1000

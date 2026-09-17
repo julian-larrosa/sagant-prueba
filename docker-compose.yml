@@ -1,0 +1,48 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: notification-postgres
+    env_file: .env
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USERNAME} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - notification-net
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: notification-mailhog
+    restart: always
+    ports:
+      - "${SMTP_PORT}:1025"
+      - "${MAILHOG_UI_PORT}:8025"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - notification-net
+
+volumes:
+  postgres_data:
+
+networks:
+  notification-net:
+    driver: bridge
