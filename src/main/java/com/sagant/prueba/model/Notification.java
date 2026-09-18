@@ -19,16 +19,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter 
-@Setter 
+@Getter
+@Setter
 @Entity
-@Table (name = "notifications")
-@NoArgsConstructor 
-@AllArgsConstructor 
-@Builder 
+@Table(name = "notifications")
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Notification {
-    
-    @Id 
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -37,17 +37,17 @@ public class Notification {
 
     @Enumerated(EnumType.STRING)
     private NotificationChannel channel;
-    
+
     @Column(nullable = false)
     private String subject;
-    
+
     @Column(nullable = false, columnDefinition = "TEXT")
     private String body;
-    
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private NotificationStatus status;
-    
+
     @Builder.Default
     @Column(nullable = false)
     private Integer retryCount = 0;
@@ -58,8 +58,8 @@ public class Notification {
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
-    
-    @UpdateTimestamp 
+
+    @UpdateTimestamp
     @Column(nullable = false)
     private LocalDateTime updatedAt;
 }

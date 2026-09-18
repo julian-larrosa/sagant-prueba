@@ -6,7 +6,4 @@ public interface NotificationService {
 
     NotificationResponse createAndDispatch(NotificationRequest request);
 
-    void updateStatusToSent(Long notificationId);
-
-    void updateStatusToFailed(Long notificationId, String errorMessage);
 }

@@ -35,4 +35,4 @@ el siguiente:
     En caso de error en el canal de despacho, reintentar al menos 1 vez antes de marcar la notificación como `FAILED`. Si el envío es exitoso, marcar como `SENT`.
 
 - RF-09 (Trazabilidad):
-    Emitir logs en consola que registren cada transición de estado: `PENDING` -> `PROCESSING` -> `SENT` / `FAILED`.
+    Emitir logs en consola que registren cada transición de estado: `PENDING` -> `SENT` / `FAILED`.
