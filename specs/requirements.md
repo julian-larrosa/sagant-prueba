@@ -10,7 +10,7 @@ el siguiente:
 
 ## Requerimientos Funcionales (RF)
 - RF-01 (Endpoint de Recepción): 
-    Exponer un endpoint `POST /api/v1/notifications` para recibir solicitudes de notificación.
+    Exponer un endpoint `POST /api/notifications` para recibir solicitudes de notificación.
 
 - RF-02 (Autenticación):
     El endpoint debe requerir el header `X-API-KEY`. Si es ausente o inválido, retornar `401 Unauthorized`.
