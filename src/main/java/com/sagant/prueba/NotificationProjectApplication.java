@@ -1,4 +1,4 @@
-package com.sagant.prueba.notification_project;
+package com.sagant.prueba;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
