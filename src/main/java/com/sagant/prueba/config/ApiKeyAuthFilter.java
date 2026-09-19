@@ -22,19 +22,18 @@ import java.util.List;
 @Order(1)
 public class ApiKeyAuthFilter extends OncePerRequestFilter {
 
-    @Value("${app.security.api-key:sagant-secret-key-123}")
+    @Value("${app.security.api-key:key}")
     private String expectedApiKey;
 
     private final ObjectMapper objectMapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
-                                    HttpServletResponse response,
-                                    FilterChain filterChain) throws ServletException, IOException {
+            HttpServletResponse response,
+            FilterChain filterChain) throws ServletException, IOException {
 
         String path = request.getRequestURI();
 
-        
         if (!path.startsWith("/api/")) {
             filterChain.doFilter(request, response);
             return;

@@ -36,7 +36,7 @@ spring:
 
 app:
   security:
-    api-key: "sagant-secret-key-123"
+    api-key: "key"
   dispatch:
     max-retries: 2
     retry-delay-ms: 1000
