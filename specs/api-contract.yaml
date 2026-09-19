@@ -4,7 +4,7 @@ info:
   description: API REST para recepción y despacho asíncrono de notificaciones.
   version: 1.0.0
 paths:
-  /api/v1/notifications:
+  /api/notifications:
     post:
       summary: Enviar una nueva notificación
       description: Valida, persiste con estado PENDING y encola el despacho asíncrono.
@@ -14,7 +14,7 @@ paths:
           required: true
           schema:
             type: string
-          example: "sagant-secret-key-123"
+          example: "key"
       requestBody:
         required: true
         content:

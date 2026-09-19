@@ -4,10 +4,7 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
-
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.transaction.annotation.Transactional;
-
 import lombok.extern.slf4j.Slf4j;
 import com.sagant.prueba.service.*;
 import com.sagant.prueba.model.*;
@@ -63,7 +60,6 @@ public class NotificationDispatcherServiceImpl implements NotificationDispatcher
         }
     }
 
-    @Transactional
     private void updateStatusToSent(Long notificationId) {
         notificationRepository.findById(notificationId).ifPresent(notification -> {
             notification.setStatus(NotificationStatus.SENT);
@@ -72,7 +68,6 @@ public class NotificationDispatcherServiceImpl implements NotificationDispatcher
         });
     }
 
-    @Transactional
     private void updateStatusToFailed(Long notificationId, String errorMessage) {
         notificationRepository.findById(notificationId).ifPresent(notification -> {
             notification.setStatus(NotificationStatus.FAILED);
