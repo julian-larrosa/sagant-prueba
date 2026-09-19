@@ -24,7 +24,7 @@ public class NotificationController {
     private final NotificationService notificationService;
 
     @PostMapping
-    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = SwaggerConstants.CREATED, description = "notificación creada exitosamente")
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = SwaggerConstants.ACCEPTED, description = "notificación creada exitosamente")
     @Operation(summary = "Crear nueva notificación", description = "Crea una notificación con estado PENDING")
     public ResponseEntity<com.sagant.prueba.dto.ApiResponse<NotificationResponse>> createNotification(
             @Valid @RequestBody NotificationRequest request) {
