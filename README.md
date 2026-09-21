@@ -15,7 +15,7 @@
 
 2\. Precondiciones
 
-\- JDK 21 o superior instalado
+\- JDK 17 o superior instalado
 
 \- Docker y Docker Desktop instalados y corriendo
 
